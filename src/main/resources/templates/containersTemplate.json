@@ -1,0 +1,10 @@
+{
+  "env": [],
+  "image": "",
+  "imagePullPolicy": "Always",
+  "name": "",
+  "ports": [],
+  "resources": {},
+  "terminationMessagePath": "/dev/termination-log",
+  "terminationMessagePolicy": "File"
+}

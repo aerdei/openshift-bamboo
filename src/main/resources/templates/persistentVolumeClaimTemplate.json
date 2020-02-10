@@ -1,0 +1,6 @@
+{
+  "name": "",
+  "persistentVolumeClaim": {
+    "claimName": ""
+  }
+}

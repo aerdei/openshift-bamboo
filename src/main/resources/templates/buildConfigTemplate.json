@@ -1,0 +1,32 @@
+{
+  "apiVersion": "v1",
+  "kind": "BuildConfig",
+  "metadata": {
+    "labels": {
+      "build": ""
+    },
+    "name": "",
+    "namespace": "",
+    "annotations": {}
+  },
+  "spec": {
+    "failedBuildsHistoryLimit": 5,
+    "nodeSelector": null,
+    "output": {
+      "to": {
+        "kind": "",
+        "name": ""
+      },
+      "pushSecret": {
+        "name": "secret-artifactory"
+      }
+    },
+    "postCommit": {},
+    "resources": {},
+    "runPolicy": "Serial",
+    "source": {},
+    "strategy": {},
+    "successfulBuildsHistoryLimit": 5,
+    "triggers": []
+  }
+}

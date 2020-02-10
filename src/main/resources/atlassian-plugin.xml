@@ -1,0 +1,65 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+  <plugin-info>
+    <description>${project.description}</description>
+    <version>${project.version}</version>
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+    <param name="plugin-icon">images/pluginIcon.png</param>
+    <param name="plugin-logo">images/pluginLogo.png</param>
+  </plugin-info>
+
+  <!-- add our i18n resource -->
+  <resource type="i18n" name="i18n" location="openshiftbamboo"/>
+
+  <!-- add our web resources
+  <web-resource key="openshiftbamboo-resources" name="openshiftbamboo Web Resources">
+      <dependency>com.atlassian.auiplugin:ajs</dependency>
+
+      <resource type="download" name="openshiftbamboo.css" location="/css/openshiftbamboo.css"/>
+      <resource type="download" name="openshiftbamboo.js" location="/js/openshiftbamboo.js"/>
+      <resource type="download" name="images/" location="/images"/>
+
+      <context>openshiftbamboo</context>
+  </web-resource>
+  -->
+  <taskType key="openshiftBuildConfig" name="OpenShift Build Config"
+    class="com.redhat.openshift.plugins.BuildConfigTask">
+    <description>Create OpenShift build configurations.</description>
+    <category name="builder"/>
+    <resource type="download" name="icon" location="ocp.png"/>
+    <configuration class="com.redhat.openshift.plugins.BuildConfigTaskConfigurator"/>
+    <resource type="freemarker" name="edit" location="editBuildConfigTask.ftl"/>
+  </taskType>
+
+  <taskType key="openshiftStartBuild" name="OpenShift Build"
+    class="com.redhat.openshift.plugins.StartBuildTask">
+    <description>Start OpenShift builds by instantiating build configs.</description>
+    <category name="builder"/>
+    <resource type="download" name="icon" location="ocp.png"/>
+    <configuration class="com.redhat.openshift.plugins.StartBuildTaskConfigurator"/>
+    <resource type="freemarker" name="edit" location="editStartBuildTask.ftl"/>
+  </taskType>
+
+  <taskType key="openshiftDeploymentConfig" name="OpenShift Deployment Config"
+    class="com.redhat.openshift.plugins.DeploymentConfigTask">
+    <description>Create OpenShift deployment configurations.</description>
+    <category name="builder"/>
+    <resource type="download" name="icon" location="ocp.png"/>
+    <configuration class="com.redhat.openshift.plugins.DeploymentConfigConfigurator"/>
+    <resource type="freemarker" name="edit" location="editDeploymentConfigTask.ftl"/>
+  </taskType>
+
+  <taskType key="openshiftRolloutDeploymentConfig" name="OpenShift Deploy"
+    class="com.redhat.openshift.plugins.RolloutDeploymentConfigTask">
+    <description>Roll out OpenShift deployments by instantiating deployment configs.</description>
+    <category name="deployment"/>
+    <resource type="download" name="icon" location="ocp.png"/>
+    <configuration class="com.redhat.openshift.plugins.RolloutDeploymentConfigTaskConfigurator"/>
+    <resource type="freemarker" name="edit" location="editRolloutDeploymentConfigTask.ftl"/>
+  </taskType>
+
+  <bambooEventListener key="openshift.buildCancelledListener" name="Build Cancelled Listener"
+    class="com.redhat.openshift.plugins.BuildCancelledListener">
+    <description>Listens for build cancellations.</description>
+  </bambooEventListener>
+
+</atlassian-plugin>

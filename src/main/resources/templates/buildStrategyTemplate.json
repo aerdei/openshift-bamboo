@@ -1,0 +1,15 @@
+{
+    "sourceStrategy": {
+      "from": {
+        "kind": "",
+        "name": ""
+      }
+    },
+    "dockerStrategy": {
+      "from": {
+        "kind": "",
+        "name": ""
+      }
+    },
+    "type": ""
+}
